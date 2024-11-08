@@ -4,11 +4,14 @@ import MainLayout from '@/layouts/MainLayout.vue'
 
 <template>
   <MainLayout>
-      <div class="page-header bg-[#F4F0F8] py-16">
-        <h1 class="text-4xl font-bold" style="color:black">Business</h1>
-        <p style="color:grey"><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-        <p><br/>BLOG > BUSINESS</p>
-      </div>
+    <div class="page-header bg-[#F4F0F8] py-16">
+      <h1 class="text-4xl font-bold" style="color: black">Business</h1>
+      <p style="color: grey">
+        <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore.
+      </p>
+      <p><br />BLOG > BUSINESS</p>
+    </div>
     <div class="category-view">
       <!-- Page Header -->
 
@@ -26,38 +29,34 @@ import MainLayout from '@/layouts/MainLayout.vue'
         </div>
 
         <!-- Sidebar -->
-        
-          <aside class="sidebar bg-white rounded-lg shadow-md p-6">
-            <div class="categories">
-              <h3 class="text-lg font-bold mb-4">Categories</h3>
-              <ul class="space-y-3">
-                <li
-                  v-for="(category, index) in categories"
-                  :key="index"
-                  :class="{ 'active bg-blue-100 text-blue-600': activeCategory === category.name }"
-                  @click="selectCategory(category.name)"
-                  class="flex items-center space-x-3 cursor-pointer rounded-lg py-2 px-4 hover:bg-blue-100 hover:text-blue-600"
-                >
-                  <img :src="category.icon" alt="Icon" class="h-6 w-6" />
-                  <span class="font-medium">{{ category.name }}</span>
-                </li>
-              </ul>
+
+        <aside class="sidebar bg-white rounded-lg shadow-md p-6">
+          <div class="categories">
+            <h3 class="text-lg font-bold mb-4">Categories</h3>
+            <ul class="space-y-3">
+              <li
+                v-for="(category, index) in categories"
+                :key="index"
+                class="flex items-center space-x-3 cursor-pointer rounded-lg py-2 px-4 hover:bg-blue-100 hover:text-blue-600"
+              >
+                <img :src="category.icon" alt="Icon" class="h-6 w-6" />
+                <span class="font-medium">{{ category.name }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="tags mt-6">
+            <h3 class="text-lg font-bold mb-4">All Tags</h3>
+            <div class="tag-list flex flex-wrap gap-2">
+              <span
+                v-for="tag in tags"
+                :key="tag"
+                class="bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm hover:bg-gray-300 cursor-pointer"
+              >
+                {{ tag }}
+              </span>
             </div>
-            <div class="tags mt-6">
-              <h3 class="text-lg font-bold mb-4">All Tags</h3>
-              <div class="tag-list flex flex-wrap gap-2">
-                <span
-                  v-for="tag in tags"
-                  :key="tag"
-                  class="bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm hover:bg-gray-300 cursor-pointer"
-                >
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
-          </aside>
-       
-        
+          </div>
+        </aside>
       </div>
     </div>
   </MainLayout>
@@ -71,25 +70,29 @@ const posts = ref([
     id: 1,
     image: 'category.png',
     title: 'Top 6 free website mockup tools 2022',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
   },
   {
     id: 2,
     image: 'category.png',
     title: 'Step-by-step guide to choosing great font pairs',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
   },
   {
     id: 3,
     image: 'category.png',
     title: 'Ten free foogle fonts that you should use',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
   },
   {
     id: 4,
     image: 'category.png',
     title: 'What did I learn from doing 50+ design sprints?',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna...',
   },
   // Add more post objects as needed
 ])
@@ -98,10 +101,17 @@ const categories = ref([
   { name: 'Startup', icon: 'startup-icon.png' },
   { name: 'Business', icon: 'business-icon.png' },
   { name: 'Economy', icon: 'economy-icon.png' },
-  { name: 'Technology', icon: 'technology-icon.png' }
+  { name: 'Technology', icon: 'technology-icon.png' },
 ])
 
-const tags = ref(['business','experience', 'screen', 'technology','marketing', 'life'])
+const tags = ref([
+  'business',
+  'experience',
+  'screen',
+  'technology',
+  'marketing',
+  'life',
+])
 </script>
 
 <style scoped>
@@ -154,12 +164,14 @@ const tags = ref(['business','experience', 'screen', 'technology','marketing', '
   margin-left: 2rem;
 }
 
-.categories h3, .tags h3 {
+.categories h3,
+.tags h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.categories ul, .tag-list {
+.categories ul,
+.tag-list {
   list-style: none;
   padding: 0;
 }
